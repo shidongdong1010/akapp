@@ -40,7 +40,7 @@ public class SecurityUser extends User implements UserDetails {
         Collection<GrantedAuthority> authorities = new ArrayList<>();
         Set<Role> userRoles = this.getRoles();
 
-        if(userRoles != null) {
+        if(userRoles != null && !userRoles.isEmpty()) {
             for (Role role : userRoles) {
                 SimpleGrantedAuthority authority = new SimpleGrantedAuthority(role.getName());
                 authorities.add(authority);

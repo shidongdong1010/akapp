@@ -10,7 +10,7 @@ import java.util.Set;
  * Created by dongdongshi on 16/1/12.
  */
 @Entity
-@Table(name = "users", catalog = "test")//code11
+@Table(name = "s_user")//code11
 public class User implements java.io.Serializable {
 
     /** 主键ID **/
@@ -162,7 +162,12 @@ public class User implements java.io.Serializable {
         this.createTime = createTime;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+    @OneToMany(fetch=FetchType.EAGER)
+    @JoinTable(
+            name="s_user_authority",
+            inverseJoinColumns={@JoinColumn(name="a_id")},
+            joinColumns={@JoinColumn(name="u_id")}
+    )
     public Set<Role> getRoles() {
         return this.roles;
     }
