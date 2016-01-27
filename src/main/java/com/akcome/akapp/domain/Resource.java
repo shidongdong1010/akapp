@@ -4,7 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 /**
- * 
+ *  资源表
  *
  * @author SDD
  * @version $v: 1.0.0, $time:2015-09-29 15:57:00 Exp $
